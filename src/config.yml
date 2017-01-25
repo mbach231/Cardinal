@@ -1,0 +1,25 @@
+Database:
+  Url: jdbc:mysql://localhost:3306/bukkit
+  Username: username
+  Password: password
+  
+EnableComponents:
+  CustomEnchantments: true
+  CustomItems: true
+  RitualMagic: true
+  Seasons: true
+  Climate: true
+  DiseaseManagement: true
+  PlantGrowth: true
+  SpawnManagement: true
+  
+EnableLogging:
+  Debug: false
+  Initialization: false
+  SeasonTemperatureInfo: false
+  Database: false
+  Scheduler: false
+  RitualEvent: false
+  DateChangeEvent: false
+  ChangeSeasonEvent: false
+  

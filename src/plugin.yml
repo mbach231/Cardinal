@@ -1,0 +1,34 @@
+name: Cardinal
+main: com.mbach231.cardinal.Cardinal
+version: 0.1
+commands:
+  ritualbook:
+    description: Spawns complete ritual book
+    usage: /ritualbook
+    permission: cardinal.ritualbook
+    permission-message: You don't have permission to use this command!
+  cenchant:
+    description: Enchants item in hand
+    usage: /cenchant <enchantment> <level>
+    permission: cardinal.cenchant
+    permission-message: You don't have permission to use this command! 
+  citem:
+    description: Gets custom item
+    usage: /citem <item name> <amount>
+    permission: cardinal.citem
+    permission-message: You don't have permission to use this command!
+  temp:
+    description: Gets your temperature based on environmental factors
+    usage: /temp
+    permission: cardinal.temp
+    permission-message: You don't have permission to use this command!
+  date:
+    description: Gets the current date
+    usage: /date
+    permission: cardinal.date
+    permission-message: You don't have permission to use this command!
+  forecast:
+    description: Gets the current forecast
+    usage: /forecast
+    permission: cardinal.forecast
+    permission-message: You don't have permission to use this command!

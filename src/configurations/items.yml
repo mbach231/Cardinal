@@ -1,0 +1,35 @@
+Items:
+  Glowing Stick:
+    Material: STICK
+    Glowing: true
+    Lore: It's a glowing stick!
+        
+  Purified Water:
+    Material: POTION
+    Glowing: false
+    Recipe:
+      RecipeType: SHAPED
+      Ingredients:
+        POTION: P
+        REDSTONE: L
+      Shape:
+        - "XLX"
+        - "XPX"
+
+  Antibiotic:
+    Material: POTION
+    Glowing: true
+    Color: RED
+    Recipe:
+      RecipeType: BREWING
+      Ingredient: REDSTONE
+      Content: POTION
+      
+  Strong Antibiotic:
+    Material: POTION
+    Glowing: true
+    Color: RED
+    Recipe:
+      RecipeType: BREWING
+      Ingredient: REDSTONE
+      Content: Purified Water

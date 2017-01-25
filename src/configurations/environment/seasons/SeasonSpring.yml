@@ -1,0 +1,440 @@
+
+WeatherStates:
+  BLIZZARD:
+    TemperatureModifier: -12
+    Precipitate: true
+    TransitionProbabilities:
+      BLIZZARD: 25
+      FREEZING: 25
+      RAIN_AND_SNOW: 20
+      COLD: 20
+      CLEAR: 10
+      WARM: 0
+      RAIN: 0
+      HOT: 0
+      SUMMER_STORM: 0
+
+  FREEZING:
+    TemperatureModifier: -9
+    Precipitate: false
+    TransitionProbabilities:
+      BLIZZARD: 20
+      FREEZING: 25
+      RAIN_AND_SNOW: 20
+      COLD: 20
+      CLEAR: 10
+      WARM: 5
+      RAIN: 0
+      HOT: 0
+      SUMMER_STORM: 0
+      
+  RAIN_AND_SNOW:
+    TemperatureModifier: -6
+    Precipitate: true
+    TransitionProbabilities:
+      BLIZZARD: 15
+      FREEZING: 20
+      RAIN_AND_SNOW: 25
+      COLD: 20
+      CLEAR: 15
+      WARM: 5
+      RAIN: 0
+      HOT: 0
+      SUMMER_STORM: 0
+      
+  COLD:
+    TemperatureModifier: -3
+    Precipitate: false
+    TransitionProbabilities:
+      BLIZZARD: 5
+      FREEZING: 10
+      RAIN_AND_SNOW: 20
+      COLD: 30
+      CLEAR: 20
+      WARM: 10
+      RAIN: 5
+      HOT: 0
+      SUMMER_STORM: 0
+      
+  CLEAR:
+    TemperatureModifier: 0
+    Precipitate: false
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 5
+      RAIN_AND_SNOW: 10
+      COLD: 20
+      CLEAR: 30
+      WARM: 20
+      RAIN: 10
+      HOT: 5
+      SUMMER_STORM: 0
+      
+  WARM:
+    TemperatureModifier: 3
+    Precipitate: false
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 5
+      COLD: 10
+      CLEAR: 20
+      WARM: 30
+      RAIN: 20
+      HOT: 10
+      SUMMER_STORM: 5
+      
+  RAIN:
+    TemperatureModifier: 6
+    Precipitate: true
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 0
+      COLD: 5
+      CLEAR: 15
+      WARM: 20
+      RAIN: 25
+      HOT: 20
+      SUMMER_STORM: 15
+      
+  HOT:
+    TemperatureModifier: 9
+    Precipitate: false
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 0
+      COLD: 5
+      CLEAR: 10
+      WARM: 20
+      RAIN: 20
+      HOT: 25
+      SUMMER_STORM: 20
+      
+  SUMMER_STORM:
+    TemperatureModifier: 12
+    Precipitate: true
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 0
+      COLD: 0
+      CLEAR: 10
+      WARM: 20
+      RAIN: 20
+      HOT: 25
+      SUMMER_STORM: 25
+      
+
+BiomeTemperatures:
+  BEACHES:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+
+  BIRCH_FOREST:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  BIRCH_FOREST_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  COLD_BEACH:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  DEEP_OCEAN:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  DESERT:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  DESERT_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  EXTREME_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  EXTREME_HILLS_WITH_TREES:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  FOREST:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  FOREST_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  FROZEN_OCEAN:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  FROZEN_RIVER:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  HELL:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  ICE_FLATS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  ICE_MOUNTAINS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  JUNGLE:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  JUNGLE_EDGE:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  JUNGLE_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MESA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MESA_CLEAR_ROCK:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MESA_ROCK:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUSHROOM_ISLAND:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUSHROOM_ISLAND_SHORE:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUTATED_BIRCH_FOREST:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUTATED_BIRCH_FOREST_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUTATED_DESERT:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUTATED_EXTREME_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUTATED_EXTREME_HILLS_WITH_TREES:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MUTATED_FOREST:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_ICE_FLATS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_JUNGLE:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_JUNGLE_EDGE:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_MESA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_MESA_CLEAR_ROCK:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_MESA_ROCK:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_PLAINS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_REDWOOD_TAIGA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_REDWOOD_TAIGA_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_ROOFED_FOREST:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_SAVANNA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_SAVANNA_ROCK:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_SWAMPLAND:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_TAIGA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  MUTATED_TAIGA_COLD:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  OCEAN:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  PLAINS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  REDWOOD_TAIGA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  REDWOOD_TAIGA_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  RIVER:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  ROOFED_FOREST:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SAVANNA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SAVANNA_ROCK:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SKY:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SMALLER_EXTREME_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  STONE_BEACH:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SWAMPLAND:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  TAIGA:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  TAIGA_COLD:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  TAIGA_COLD_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  TAIGA_HILLS:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  VOID:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    

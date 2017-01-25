@@ -1,0 +1,10 @@
+
+GrowthRates:
+    
+  CROPS:
+    # In minutes
+    GrowthRatePerBiome:
+      PlainsSet: 1
+      BeachSet: 2
+      DesertSet: 10
+    

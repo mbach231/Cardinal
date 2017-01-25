@@ -1,0 +1,126 @@
+WeatherStates:
+  BLIZZARD:
+    TemperatureModifier: -12
+    PrecipitateChance: 1.0
+    TransitionProbabilities:
+      BLIZZARD: 25
+      FREEZING: 25
+      RAIN_AND_SNOW: 20
+      COLD: 20
+      CLEAR: 10
+      WARM: 0
+      RAIN: 0
+      HOT: 0
+      SUMMER_STORM: 0
+
+  FREEZING:
+    TemperatureModifier: -9
+    PrecipitateChance: 0
+    TransitionProbabilities:
+      BLIZZARD: 20
+      FREEZING: 25
+      RAIN_AND_SNOW: 20
+      COLD: 20
+      CLEAR: 10
+      WARM: 5
+      RAIN: 0
+      HOT: 0
+      SUMMER_STORM: 0
+      
+  RAIN_AND_SNOW:
+    TemperatureModifier: -6
+    PrecipitateChance: 1.0
+    TransitionProbabilities:
+      BLIZZARD: 15
+      FREEZING: 20
+      RAIN_AND_SNOW: 25
+      COLD: 20
+      CLEAR: 15
+      WARM: 5
+      RAIN: 0
+      HOT: 0
+      SUMMER_STORM: 0
+      
+  COLD:
+    TemperatureModifier: -3
+    PrecipitateChance: 0
+    TransitionProbabilities:
+      BLIZZARD: 5
+      FREEZING: 10
+      RAIN_AND_SNOW: 20
+      COLD: 30
+      CLEAR: 20
+      WARM: 10
+      RAIN: 5
+      HOT: 0
+      SUMMER_STORM: 0
+      
+  CLEAR:
+    TemperatureModifier: 0
+    PrecipitateChance: 0
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 5
+      RAIN_AND_SNOW: 10
+      COLD: 20
+      CLEAR: 30
+      WARM: 20
+      RAIN: 10
+      HOT: 5
+      SUMMER_STORM: 0
+      
+  WARM:
+    TemperatureModifier: 3
+    PrecipitateChance: 0
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 5
+      COLD: 10
+      CLEAR: 20
+      WARM: 30
+      RAIN: 20
+      HOT: 10
+      SUMMER_STORM: 5
+      
+  RAIN:
+    TemperatureModifier: 6
+    PrecipitateChance: 1.0
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 0
+      COLD: 5
+      CLEAR: 15
+      WARM: 20
+      RAIN: 25
+      HOT: 20
+      SUMMER_STORM: 15
+      
+  HOT:
+    TemperatureModifier: 9
+    PrecipitateChance: 0
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 0
+      COLD: 5
+      CLEAR: 10
+      WARM: 20
+      RAIN: 20
+      HOT: 25
+      SUMMER_STORM: 20
+      
+  SUMMER_STORM:
+    TemperatureModifier: 12
+    PrecipitateChance: 1.0
+    TransitionProbabilities:
+      BLIZZARD: 0
+      FREEZING: 0
+      RAIN_AND_SNOW: 0
+      COLD: 0
+      CLEAR: 10
+      WARM: 20
+      RAIN: 20
+      HOT: 25
+      SUMMER_STORM: 25

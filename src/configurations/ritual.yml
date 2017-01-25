@@ -1,0 +1,386 @@
+rituals:
+    
+  Summon Dawn:
+    circles:
+      small: GOLD_BLOCK
+      medium: DIAMOND_BLOCK
+    sacrifices:
+      BLAZE_POWDER: 1
+    time: 12500, 23500
+    event: SetTime, 500
+     
+  Summon Dusk:
+    circles:
+      small: IRON_BLOCK
+      medium: DIAMOND_BLOCK
+    sacrifices:
+      INK_SACK: 1
+      ENDER_PEARL: 1
+    time: 0, 12000
+    event: SetTime, 12500
+  
+  Resume Time:
+    circles:
+      small: EMERALD_BLOCK
+      large: REDSTONE_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      COAL: 1
+      BLAZE_POWDER: 1
+      DIAMOND: 1
+    biomes:
+      - DESERT
+    event: ResumeTime
+    
+  Eternal Night:
+    circles:
+      small: REDSTONE_BLOCK
+      medium: DIAMOND_BLOCK
+      large: EMERALD_BLOCK
+    sacrifices:
+      VILLAGER: 10
+      NETHER_STAR: 1
+    time: 17500, 18500
+    num-players: 5
+    biomes:
+      - ICE_FLATS
+    moon-phases:
+      - FULL_MOON
+    event: FreezeTime
+    
+  Fleshcraft Cow:
+    circles:
+      small: CLAY
+      medium: LAPIS_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      BONE: 8
+      ROTTEN_FLESH: 8
+      INK_SACK: 1
+      SUGAR: 1
+      WHEAT: 2
+    event: SpawnEntity, COW
+    
+  Fleshcraft Horse:
+    circles:
+      small: CLAY
+      medium: LAPIS_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      BONE: 10
+      ROTTEN_FLESH: 8
+      SUGAR: 3
+    event: SpawnEntity, HORSE
+  
+  Fleshcraft Skeleton Horse:
+    circles:
+      small: CLAY
+      medium: LAPIS_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      BONE: 20
+      ROTTEN_FLESH: 2
+      SUGAR: 3
+    event: SpawnEntity, HORSE, SKELETON_HORSE
+    
+  Fleshcraft Zombie Horse:
+    circles:
+      small: CLAY
+      medium: LAPIS_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      BONE: 20
+      ROTTEN_FLESH: 10
+      SUGAR: 3
+    event: SpawnEntity, HORSE, UNDEAD_HORSE
+    
+  Fleshcraft Pig:
+    circles:
+      small: CLAY
+      medium: LAPIS_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      BONE: 3
+      ROTTEN_FLESH: 3
+      CARROT_ITEM: 1
+    event: SpawnEntity, PIG
+    
+  Fleshcraft Chicken:
+    circles:
+      small: CLAY
+      medium: LAPIS_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      BONE: 3
+      ROTTEN_FLESH: 3
+    event: SpawnEntity, CHICKEN
+    
+  Fleshcraft Sheep:
+    circles:
+      small: CLAY
+      medium: LAPIS_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      BONE: 1
+      ROTTEN_FLESH: 1
+      WHEAT: 2
+    event: SpawnEntity, SHEEP
+    
+  Enchant Silktouch:
+    circles:
+      small: DIAMOND_BLOCK
+      medium: GOLD_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 4
+      DIAMOND: 1
+      DIAMOND_PICKAXE: 1
+      GOLD_INGOT: 1
+      CHICKEN: 2
+    event: Enchant, DIAMOND_PICKAXE, SILK_TOUCH, 1
+    
+  Enchant Efficiency:
+    circles:
+      small: DIAMOND_BLOCK
+      medium: GOLD_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      DIAMOND_PICKAXE: 1
+      GOLD_INGOT: 1
+      SUGAR: 1
+    event: Enchant, DIAMOND_PICKAXE, DIG_SPEED, 4
+    
+  Enchant Smite:
+    circles:
+      small: DIAMOND_BLOCK
+      medium: IRON_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      DIAMOND_SWORD: 1
+      GOLD_INGOT: 1
+      GHAST_TEAR: 1
+    event: Enchant, DIAMOND_SWORD, DAMAGE_UNDEAD, 4
+    
+  Enchant Rod of Luck:
+    circles:
+      small: DIAMOND_BLOCK
+      medium: IRON_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      DIAMOND: 1
+      FISHING_ROD: 1
+      GOLD_INGOT: 1
+      GHAST_TEAR: 1
+    event: Enchant, FISHING_ROD, LUCK, 2
+    
+  Smelt Iron:
+    circles:
+      small: IRON_BLOCK
+      medium: COAL_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      IRON_ORE: 16
+      COAL: 2
+    event: SpawnItem, IRON_INGOT, 17
+    
+  Smelt Gold:
+    circles:
+      small: GOLD_BLOCK
+      medium: COAL_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      GOLD_ORE: 16
+      COAL: 2
+    num-players: 2
+    event: SpawnItem, GOLD_INGOT, 17
+    
+  Egg Chicken:
+    circles:
+      small: EMERALD_BLOCK
+      medium: COAL_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      EGG: 1
+      DIAMOND: 1
+      CLAY_BALL: 8
+      CHICKEN: 1
+    event: SpawnItem, MONSTER_EGG, 1, CHICKEN
+    
+    Egg Sheep:
+    circles:
+      small: EMERALD_BLOCK
+      medium: COAL_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      EGG: 1
+      DIAMOND: 1
+      CLAY_BALL: 1
+      SHEEP: 1
+    event: SpawnItem, MONSTER_EGG, 1, SHEEP
+    
+  Egg Pig:
+    circles:
+      small: EMERALD_BLOCK
+      medium: COAL_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      EGG: 1
+      DIAMOND: 1
+      CLAY_BALL: 8
+      PIG: 1
+    event: SpawnItem, MONSTER_EGG, 1, PIG
+    
+  Egg Cow:
+    circles:
+      small: EMERALD_BLOCK
+      medium: COAL_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      EGG: 1
+      DIAMOND: 1
+      CLAY_BALL: 8
+      COW: 1
+    event: SpawnItem, MONSTER_EGG, 1, COW
+    
+  Egg Horse:
+    circles:
+      small: EMERALD_BLOCK
+      medium: COAL_BLOCK
+      large: CLAY
+    sacrifices:
+      REDSTONE: 1
+      EGG: 1
+      DIAMOND: 1
+      CLAY_BALL: 1
+      HORSE: 1
+    event: SpawnItem, MONSTER_EGG, 1, HORSE
+    
+  Teleport Bed:
+    circles:
+      small: ENDER_STONE
+      medium: ENDER_STONE
+      large: DIAMOND_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      ENDER_PEARL: 1
+      DIAMOND: 1
+    event: TeleportBed
+  
+  Random Teleport:
+    circles:
+      small: ENDER_STONE
+      medium: ENDER_STONE
+    sacrifices:
+      REDSTONE: 1
+      ENDER_PEARL: 1
+    event: RandomTeleport, 500
+    
+  Open Short Spirit Tunnel:
+    circles:
+      large: ENDER_STONE
+    sacrifices:
+      REDSTONE: 1
+      ENDER_PEARL: 1
+      IRON_INGOT: 1
+    event: SpiritTunnelOpen, 30
+    
+  Travel Spirit Tunnel:
+    circles:
+      large: ENDER_STONE
+    sacrifices:
+      REDSTONE: 1
+      ENDER_PEARL: 1
+      DIAMOND: 1
+    event: SpiritTunnelTravel
+    
+  Summon Storm:
+    circles:
+      small: LAPIS_BLOCK
+      medium: GOLD_BLOCK
+      large: IRON_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      GHAST_TEAR: 1
+      WATER_BUCKET: 1
+    event: StormyWeather
+    
+  Clear Storm:
+    circles:
+      small: LAPIS_BLOCK
+      medium: GOLD_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      LAVA_BUCKET: 1
+      BLAZE_POWDER: 1
+    event: ClearWeather
+    
+  Detect Recent Magic:
+    circles:
+      small: REDSTONE_BLOCK
+      medium: DIAMOND_BLOCK
+      large: EMERALD_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      SKULL_ITEM: 1
+    event: DetectMagic, 120, 1000
+
+  Short Magic Suppression:
+    circles:
+      small: EMERALD_BLOCK
+      medium: REDSTONE_BLOCK
+      large: EMERALD_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      EMERALD: 1
+    event: SuppressArea, 1, 1000
+    
+  Shout (1 page):
+    circles:
+      small: ENDER_STONE
+      medium: LAPIS_BLOCK
+      large: EMERALD_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      ENDER_PEARL: 1
+      WRITTEN_BOOK: 1
+    event: Shout, 1, 2000
+    
+  Create End Portal:
+    circles:
+      small: ENDER_STONE
+      medium: ENDER_STONE
+      large: EMERALD_BLOCK
+    sacrifices:
+      REDSTONE: 1
+      ENDER_PEARL: 1
+      NETHER_STAR: 1
+    event: CreateStructure, EndPortal, true
+
+structures:
+  EndPortal:
+    - ENDER_PORTAL, 0, 1, 0
+    - ENDER_STONE, -1, 1, -1
+    - ENDER_STONE, -1, 1, 0
+    - ENDER_STONE, -1, 1, 1
+    - ENDER_STONE, 0, 1, -1
+    - ENDER_STONE, 0, 1, 1
+    - ENDER_STONE, 1, 1, -1
+    - ENDER_STONE, 1, 1, 0
+    - ENDER_STONE, 1, 1, 1
+    

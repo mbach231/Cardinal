@@ -1,0 +1,30 @@
+
+ValidSpawnReasons:
+  - NATURAL
+  - NETHER_PORTAL
+  - VILLAGE_DEFENSE
+  - VILLAGE_INVASION
+  - CHUNK_GEN
+
+SpawnOnBlacklist:
+  - WATER
+  - STATIONARY_WATER
+  - LAVA
+  - STATIONARY_LAVA
+Mobs:
+  PLAINS:
+    ZOMBIE:
+      Chance: 0.3
+      MinLightLevel: 0
+      MaxLightLevel: 15
+      MinX: -10000
+      MaxX: 10000
+      MinY: 0
+      MaxY: 255
+      MinZ: -10000
+      MaxZ: 10000
+      SpawnOnBlacklistOverride:
+        - LAVA
+        - STATIONARY_LAVA
+      
+      

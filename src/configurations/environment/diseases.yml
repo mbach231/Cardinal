@@ -1,0 +1,31 @@
+
+Diseases:
+  Zombie Plague:
+    ImmunityDuration: 10
+    Stages:
+      1:
+        Duration: 1200
+        PeriodicInterval: 60
+        ContactTransmissionRate: 0.25
+        AirborneTransmissionRate: 0
+        TransmissionDistance: 0
+        CureOnDeath: true
+      2:
+        Duration: 1200
+        PeriodicInterval: 60
+        ContactTransmissionRate: 0.25
+        AirborneTransmissionRate: 0
+        TransmissionDistance: 0
+        CureOnDeath: true
+        DiseaseEffects:
+          1:
+            EffectType: POTION
+            PotionType: WEAKNESS
+            Level: 1
+            Duration: 10
+            Conditions:
+              Time:
+                Start: 6000
+                End: 18000
+          
+           

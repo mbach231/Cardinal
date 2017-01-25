@@ -1,0 +1,107 @@
+
+DayChangeCheckRateInSeconds: 20
+DayCheckWorldToUse: world
+
+GrowthCheckRateInMinutes: 1
+
+WorldsAffectedByPrecipitation:
+  - world
+
+TemperatureCheckRateInSeconds: 20
+PrecipitationCheckRateInSeconds: 300
+
+MaxTemperatureBeforeHeatDamage: 25
+MinTemperatureBeforeColdDamage: 0
+DamageRate: 0.1
+
+OutdoorBlockChecks:
+  - 1,1,0
+  - -1,1,0
+  - 0,1,1
+  - 0,1,-1
+  - 0,2,0
+  
+BlockTemperatureModifierCheckRadius: 1
+
+HungerDamageRestoredFromWaterBottle: 4
+  
+BlockTemperatureModifier:
+  LAVA: 4
+  STATIONARY_LAVA: 4
+  SNOW: -1
+  SNOW_BLOCK: -1
+  FROSTED_ICE: -1
+  ICE: -1
+  PACKED_ICE: -1
+  
+HeldItemTemperatureModifier:
+  TORCH: 5
+  LAVA_BUCKET: 15
+  SNOW_BALL: -4
+
+ArmorTemperatureModifier:
+  LEATHER_BOOTS:
+    Cold: 4
+    Heat: -4
+  LEATHER_LEGGINGS:
+    Cold: 4
+    Heat: -4
+  LEATHER_CHESTPLATE:
+    Cold: 4
+    Heat: -4
+  LEATHER_HELMET:
+    Cold: 4
+    Heat: -4
+  GOLD_BOOTS:
+    Cold: 4
+    Heat: -4
+  GOLD_LEGGINGS:
+    Cold: 4
+    Heat: -4
+  GOLD_CHESTPLATE:
+    Cold: 4
+    Heat: -4
+  GOLD_HELMET:
+    Cold: 4
+    Heat: -4
+  IRON_BOOTS:
+    Cold: 4
+    Heat: -4
+  IRON_LEGGINGS:
+    Cold: 4
+    Heat: -4
+  IRON_CHESTPLATE:
+    Cold: 4
+    Heat: -4
+  IRON_HELMET:
+    Cold: 4
+    Heat: -4
+  DIAMOND_BOOTS:
+    Cold: 0
+    Heat: 0
+  DIAMOND_LEGGINGS:
+    Cold: 0
+    Heat: 0
+  DIAMOND_CHESTPLATE:
+    Cold: 0
+    Heat: 0
+  DIAMOND_HELMET:
+    Cold: 0
+    Heat: 0
+
+Default:
+  DayLength: 12000
+  NightLength: 12000
+  Config: configurations/environment/default/
+
+Seasons:
+  Spring:
+    Duration: 1
+    DayLength: 12000
+    NightLength: 12000
+    Config: configurations/environment/Spring
+  Summer:
+    Duration: 1
+    DayLength: 12000
+    NightLength: 12000
+    Config: configurations/environment/Summer

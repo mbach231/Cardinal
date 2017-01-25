@@ -1,0 +1,49 @@
+Enchantments:
+  Glow:
+    Enable: true
+    ID: 130
+  Soulbond: 
+    Enable: true
+    ID: 131
+  Drain: 
+    Enable: true
+    ID: 132
+  Knockup: 
+    Enable: true
+    ID: 133
+  Heal: 
+    Enable: true
+    ID: 134
+  Disarm:
+    Enable: true
+    ID: 135
+  Retrieve:
+    Enable: true
+    ID: 136
+  Dragonsbane:
+    Enable: true
+    ID: 137
+  Alchemical Protection:
+    Enable: true
+    ID: 138
+  Lightning:
+    Enable: true
+    ID: 139
+  Scythe:
+    Enable: true
+    ID: 140
+  Slow:
+    Enable: true
+    ID: 141
+  Vile:
+    Enable: true
+    ID: 142
+  Explosive:
+    Enable: true
+    ID: 143
+  Heat Resistance:
+    Enable: true
+    ID: 144
+  Cold Resistance:
+    Enable: true
+    ID: 145

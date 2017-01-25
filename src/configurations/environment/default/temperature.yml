@@ -1,0 +1,86 @@
+BiomeTemperatures:
+  BeachSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+
+  ForestSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  ColdSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  OceanSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  DesertSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  ExtremeHillsSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  HellSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  JungleSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MushroomIslandSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+  
+  MutatedSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  PlainsSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  TaigaSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  RiverSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SavannaSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SkySet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  SwampSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    
+  VoidSet:
+    AverageTemperature: 20
+    DayModifier: 10
+    NightModifier: -5
+    

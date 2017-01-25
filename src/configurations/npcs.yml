@@ -1,0 +1,124 @@
+#
+# Name:
+#   hp: Num hitpoints
+#   on-spawn-potion-effects:
+#     EFFECT_NAME:
+#       level: Potion effect level   
+#       duration: Effect duration in seconds (optional, ignoring = perm effect)
+#       chance: Chance of effect occuring
+
+
+NPCs:
+  Vicious Zombie:
+    EntityType: ZOMBIE
+    HP: 20
+    XP: 6
+    Equipment:
+      HAND:
+        Material: WOOD_SWORD
+        Enchantments:
+          Knockup:
+            Level: 1
+      CHEST:
+        Material: LEATHER_CHESTPLATE
+    OnSpawn:
+      PotionEffectSelf:
+        SPEED:
+          Level: 2
+          Chance: 1.0
+    OnAttack:
+      PotionEffectVictim:
+        SLOW:
+          Level: 1
+          Duration: 5
+          Chance: 0.4
+      PotionEffectAttacker:
+        SLOW:
+          Level: 1
+          Duration: 7
+          Chance: 0.5
+    OnDeath:
+      Drops:
+        Material:
+          STICK:
+            Min: 0
+            Max: 2
+            DropChance:
+              1: 0.25
+              2: 0.1
+        Potion:
+          SLOW:
+            Level: 1
+            Duration: 15
+            Splash: true
+            Min: 0
+            Max: 1
+            DropChance:
+              1: 0.1
+        Custom:
+          Glowing Stick:
+            Min: 1
+            Max: 2
+            DropChance:
+              1: 0.5
+              2: 0.5
+            
+            
+  Forest Spider Minion:
+    EntityType: SPIDER
+    HP: 3
+    XP: 6
+    OnSpawn:
+      PotionEffectSelf:
+        SPEED:
+          Level: 1
+          Chance: 0.5
+    OnAttack:
+      PotionEffectSelf:
+        SPEED:
+          Level: 2
+          Duration: 5
+          Chance: 0.1
+      PotionEffectVictim:
+        POISON:
+          Level: 1
+          Duration: 5
+          Chance: 0.4
+    OnDamaged:
+      PotionEffectSelf:
+        SPEED:
+          Level: 2
+          Chance: 0.5
+      PotionEffectAttacker:
+        SLOW:
+          Level: 1
+          Duration: 7
+          Chance: 0.5
+    OnDeath:
+      Drops:
+        Material:
+          STICK:
+            Min: 0
+            Max: 2
+            DropChance:
+              1: 0.25
+              2: 0.1
+        Potion:
+          SLOW:
+            Level: 1
+            Duration: 15
+            Splash: true
+            Min: 0
+            Max: 1
+            DropChance:
+              1: 0.1
+        Custom:
+          Glowing Stick:
+            Min: 1
+            Max: 2
+            DropChance:
+              1: 0.25
+              2: 0.1
+           
+    
+  
