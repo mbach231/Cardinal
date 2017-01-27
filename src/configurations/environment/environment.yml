@@ -89,19 +89,66 @@ ArmorTemperatureModifier:
     Cold: 0
     Heat: 0
 
+# Used if Seasons is disabled but other season-bound components are enabled
 Default:
   DayLength: 12000
   NightLength: 12000
   Config: configurations/environment/default/
 
+# Setting the Day and Night cycle
+
+# Time is lengthened by constantly pausing, then resuming, the daylight cycle.
+# The config options you have will allow you to adjust how long to pause and
+# how much time is between pauses.
+# 
+# TicksBetweenPauses: Number of ticks time is normal before pausing.
+# 
+# TicksPerPause: Number of ticks time is paused before resuming.
+#
+# By default, the time length for a day or night cycle is 12000 ticks (10m).
+# The way to calculate what the new length for your cycle is given by:
+#
+# New Length = (TicksBetweenPauses + TicksPerPause)/TicksBetweenPauses * 12000
+# 
+# A simplier way to look at this is: 
+#
+# Time Multiplier = (TicksBetweenPauses + TicksPerPause)/TicksBetweenPauses
+#
+# If you want to double the time, set both config options to the same value:
+#    
+# Time Multiplier = (X + X)/X = 2X/X = 2
+#
+# If you want to increase the time by 50%, set TicksPerPause to half of what
+# you set TicksBetweenPauses.
+#
+# Time Multiplier = (2X + X)/2X = 3X/2X = 1.5
+#
+#
+# Notably, this means you can have multiple ways of setting the values to 
+# achieve the same daylight length. For example, setting both values to 1
+# and setting both values to 10 will both double the time length. The difference
+# becomes how often the transitions occur. If both are set to 1, this means a
+# transition occurs every tick. If they're both set to 10, the transition occurs
+# every 10 ticks. Using low values may result in poor server performance. Using
+# high values may result in rather noticable stops in the time cycle when 
+# looking at the sun/moon.
 Seasons:
   Spring:
     Duration: 1
-    DayLength: 12000
-    NightLength: 12000
+    # Set to 15m
+    DayCycle:
+      TicksBetweenPauses: 20
+      TicksPerPause: 10
+    # Set to 15m
+    NightCycle:
+      TicksBetweenPauses: 20
+      TicksPerPause: 10
     Config: configurations/environment/Spring
   Summer:
     Duration: 1
-    DayLength: 12000
-    NightLength: 12000
+    # Set to 20m
+    DayCycle:
+      TicksBetweenPauses: 20
+      TicksPerPause: 20
+    # Night cycle not set, defaults to 10m
     Config: configurations/environment/Summer

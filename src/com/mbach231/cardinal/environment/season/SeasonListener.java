@@ -1,4 +1,3 @@
-
 package com.mbach231.cardinal.environment.season;
 
 import com.mbach231.cardinal.CardinalLogger;
@@ -6,6 +5,7 @@ import com.mbach231.cardinal.ConfigManager;
 import com.mbach231.cardinal.environment.BiomeSetManager;
 import com.mbach231.cardinal.environment.event.DayChangeEvent;
 import com.mbach231.cardinal.environment.event.SeasonChangeEvent;
+import com.mbach231.cardinal.environment.event.TwilightEvent;
 import com.mbach231.cardinal.environment.season.climate.WeatherState;
 import com.mbach231.cardinal.environment.season.climate.WeatherStateTransition;
 import com.mbach231.cardinal.environment.season.climate.temperature.TemperatureEntry;
@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.block.Biome;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
@@ -37,12 +38,15 @@ public final class SeasonListener implements Listener {
 
     private final int daysPerYear_;
 
+    private final DaylightCycleManager daylightCycleManager_;
+
     private final DateDatabaseInterface dateDatabaseInterface_;
 
     FileConfiguration environmentConfig_;
 
-    public SeasonListener() {
+    public SeasonListener(World world) {
         dateDatabaseInterface_ = new DateDatabaseInterface();
+
         year_ = dateDatabaseInterface_.getYear();
         day_ = dateDatabaseInterface_.getDay();
         seasonList_ = new ArrayList();
@@ -56,11 +60,18 @@ public final class SeasonListener implements Listener {
         // load seasons here
         for (String seasonName : environmentConfig_.getConfigurationSection("Seasons").getValues(false).keySet()) {
             int numDays = environmentConfig_.getInt("Seasons." + seasonName + ".Duration");
+
+            int dayTicksBetweenPauses = environmentConfig_.getInt("Seasons." + seasonName + ".DayCycle.TicksBetweenPauses");
+            int dayTicksPerPause = environmentConfig_.getInt("Seasons." + seasonName + ".DayCycle.TicksPerPause");
+            int nightTicksBetweenPauses = environmentConfig_.getInt("Seasons." + seasonName + ".NightCycle.TicksBetweenPauses");
+            int nightTicksPerPause = environmentConfig_.getInt("Seasons." + seasonName + ".NightCycle.TicksPerPause");
+            DaylightCycle cycle = new DaylightCycle(dayTicksBetweenPauses, dayTicksPerPause, nightTicksBetweenPauses, nightTicksPerPause);
+
             long dayLength = environmentConfig_.getLong("Seasons." + seasonName + ".DayLength");
             long nightLength = environmentConfig_.getLong("Seasons." + seasonName + ".NightLength");
             String folderPath = environmentConfig_.getString("Seasons." + seasonName + ".Config");
 
-            Season season = new Season(seasonName, numDays, dayLength, nightLength, folderPath);
+            Season season = new Season(seasonName, numDays, cycle, dayLength, nightLength, folderPath);
             seasonList_.add(season);
             CardinalLogger.log(CardinalLogger.LogID.Initialization, "Loaded season: " + seasonName);
 
@@ -101,12 +112,22 @@ public final class SeasonListener implements Listener {
             outputSeasonTemperatureInfo();
         }
 
+        if (currentSeason_ != null) {
+            daylightCycleManager_ = new DaylightCycleManager(world, currentSeason_);
+        } else {
+            daylightCycleManager_ = null;
+        }
     }
 
     private void saveDate() {
         dateDatabaseInterface_.saveDate(year_, day_);
     }
 
+    @EventHandler
+    public void onTwilightEvent(TwilightEvent event) {
+        daylightCycleManager_.handleTwilightEvent(event);
+    }
+    
     @EventHandler
     public void onDayChange(DayChangeEvent event) {
         incrementDate();
@@ -116,6 +137,7 @@ public final class SeasonListener implements Listener {
             currentSeason_ = (idx == seasonList_.size() - 1) ? seasonList_.get(0) : seasonList_.get(idx + 1);
             nextChangeSeasonDay_ = (day_ + currentSeason_.getNumberOfDaysInSeason()) % daysPerYear_;
             Bukkit.getServer().getPluginManager().callEvent(new SeasonChangeEvent(currentSeason_));
+            daylightCycleManager_.setSeason(currentSeason_);
 
             CardinalLogger.log(CardinalLogger.LogID.ChangeSeasonEvent,
                     "Changing to season: " + currentSeason_.getName());

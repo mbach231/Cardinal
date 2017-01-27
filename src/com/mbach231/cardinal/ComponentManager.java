@@ -13,6 +13,8 @@ import com.mbach231.cardinal.environment.spawning.NpcListener;
 import com.mbach231.cardinal.items.CustomItemListener;
 import com.mbach231.cardinal.items.enchanting.EnchantmentListener;
 import com.mbach231.cardinal.magic.ritual.RitualListener;
+import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -41,8 +43,10 @@ public class ComponentManager {
 //    private final SpawnListener spawnListener_;
     public ComponentManager(JavaPlugin plugin) {
 
+        World world = Bukkit.getWorld(ConfigManager.getEnvironmentConfig().getString("DayCheckWorldToUse"));
+        
         CardinalLogger.log(LogID.Initialization, "Initializing time management...");
-        timeManager_ = new DayChangeManager();
+        timeManager_ = new DayChangeManager(world);
 
         biomeSetManager_ = new BiomeSetManager();
 
@@ -74,7 +78,7 @@ public class ComponentManager {
 
         if (ConfigManager.getDefaultConfig().getBoolean("EnableComponents.Seasons")) {
             CardinalLogger.log(LogID.Initialization, "Initializing seasons...");
-            seasonListener_ = new SeasonListener();
+            seasonListener_ = new SeasonListener(world);
             plugin.getServer().getPluginManager().registerEvents(seasonListener_, plugin);
             currentSeason = seasonListener_.getCurrentSeason();
         } else {
