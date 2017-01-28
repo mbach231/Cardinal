@@ -32,3 +32,8 @@ commands:
     usage: /forecast
     permission: cardinal.forecast
     permission-message: You don't have permission to use this command!
+  setdate:
+    description: Sets the date
+    usage: /setdate <year> <day>
+    permission: cardinal.setdate
+    permission-message: You don't have permission to use this command!

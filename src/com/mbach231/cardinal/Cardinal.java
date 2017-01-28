@@ -34,11 +34,11 @@ public class Cardinal extends JavaPlugin implements Listener {
         // Initialize database connection
         DatabaseManager.initialize(ConfigManager.getDefaultConfig());
 
-        // Initialize command handler
-        masterCommandHandler_ = new MasterCommandHandler();
-
         // Initialize various components, listeners
         componentManager_ = new ComponentManager(this);
+        
+        // Initialize command handler
+        masterCommandHandler_ = new MasterCommandHandler();
     }
 
     @Override

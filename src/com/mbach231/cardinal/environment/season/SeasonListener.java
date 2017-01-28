@@ -6,15 +6,10 @@ import com.mbach231.cardinal.environment.BiomeSetManager;
 import com.mbach231.cardinal.environment.event.DayChangeEvent;
 import com.mbach231.cardinal.environment.event.SeasonChangeEvent;
 import com.mbach231.cardinal.environment.event.TwilightEvent;
-import com.mbach231.cardinal.environment.season.climate.WeatherState;
-import com.mbach231.cardinal.environment.season.climate.WeatherStateTransition;
-import com.mbach231.cardinal.environment.season.climate.temperature.TemperatureEntry;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
@@ -28,19 +23,19 @@ import org.bukkit.event.Listener;
  */
 public final class SeasonListener implements Listener {
 
-    private final List<Season> seasonList_;
-    private Season currentSeason_;
-    private int nextChangeSeasonDay_;
+    private static List<Season> seasonList_;
+    private static Season currentSeason_;
+    private static int nextChangeSeasonDay_;
 
     private static int year_;
     private static int day_;
     private static int daysIntoSeason_;
 
-    private final int daysPerYear_;
+    private static int daysPerYear_;
 
-    private final DaylightCycleManager daylightCycleManager_;
+    private static DaylightCycleManager daylightCycleManager_;
 
-    private final DateDatabaseInterface dateDatabaseInterface_;
+    private static DateDatabaseInterface dateDatabaseInterface_;
 
     FileConfiguration environmentConfig_;
 
@@ -80,7 +75,7 @@ public final class SeasonListener implements Listener {
             if (day_ < tempDaysPerYear && currentSeason_ == null) {
                 currentSeason_ = season;
                 nextChangeSeasonDay_ = tempDaysPerYear;
-                daysIntoSeason_ = nextChangeSeasonDay_ - day_;
+                daysIntoSeason_ = nextChangeSeasonDay_ - day_ - 1;
             }
         }
         daysPerYear_ = tempDaysPerYear;
@@ -119,28 +114,64 @@ public final class SeasonListener implements Listener {
         }
     }
 
-    private void saveDate() {
+    private static void saveDate() {
         dateDatabaseInterface_.saveDate(year_, day_);
+    }
+
+    public static boolean setDate(int year, int day) {
+        Season newSeason = getSeasonFromDay(day);
+
+        if (newSeason != null) {
+            
+            year_ = year;
+            day_ = day;
+
+            if (newSeason != currentSeason_) {
+                setSeason(newSeason);
+            }
+            
+            saveDate();
+            
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static Season getSeasonFromDay(int day) {
+        int runningDay = 0;
+        for (Season season : seasonList_) {
+            if (day >= runningDay && day < season.getNumberOfDaysInSeason() + runningDay) {
+                return season;
+            }
+            runningDay += season.getNumberOfDaysInSeason();
+        }
+        return null;
+    }
+
+    private static void setSeason(Season season) {
+        currentSeason_ = season;
+        nextChangeSeasonDay_ = (day_ + currentSeason_.getNumberOfDaysInSeason()) % daysPerYear_;
+        Bukkit.getServer().getPluginManager().callEvent(new SeasonChangeEvent(currentSeason_));
+        daylightCycleManager_.setSeason(currentSeason_);
+
+        CardinalLogger.log(CardinalLogger.LogID.ChangeSeasonEvent,
+                "Changing to season: " + currentSeason_.getName());
     }
 
     @EventHandler
     public void onTwilightEvent(TwilightEvent event) {
         daylightCycleManager_.handleTwilightEvent(event);
     }
-    
+
     @EventHandler
     public void onDayChange(DayChangeEvent event) {
         incrementDate();
         if (day_ == nextChangeSeasonDay_) {
             int idx = seasonList_.indexOf(currentSeason_);
 
-            currentSeason_ = (idx == seasonList_.size() - 1) ? seasonList_.get(0) : seasonList_.get(idx + 1);
-            nextChangeSeasonDay_ = (day_ + currentSeason_.getNumberOfDaysInSeason()) % daysPerYear_;
-            Bukkit.getServer().getPluginManager().callEvent(new SeasonChangeEvent(currentSeason_));
-            daylightCycleManager_.setSeason(currentSeason_);
-
-            CardinalLogger.log(CardinalLogger.LogID.ChangeSeasonEvent,
-                    "Changing to season: " + currentSeason_.getName());
+            Season nextSeason = (idx == seasonList_.size() - 1) ? seasonList_.get(0) : seasonList_.get(idx + 1);
+            setSeason(nextSeason);
         }
     }
 
@@ -159,8 +190,16 @@ public final class SeasonListener implements Listener {
         return day_ + 1;
     }
 
+    public static int getDaysIntoSeason() {
+        return daysIntoSeason_ + 1;
+    }
+
     public static int getYear() {
-        return year_;
+        return year_ + 1;
+    }
+
+    public static Season getSeason() {
+        return currentSeason_;
     }
 
     public String getDateString() {
