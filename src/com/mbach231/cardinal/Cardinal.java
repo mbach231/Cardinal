@@ -3,7 +3,6 @@ package com.mbach231.cardinal;
 import com.mbach231.cardinal.command.MasterCommandHandler;
 import com.mbach231.cardinal.database.DatabaseManager;
 import com.mbach231.cardinal.items.CustomItemListener;
-import java.sql.Timestamp;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

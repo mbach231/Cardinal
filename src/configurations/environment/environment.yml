@@ -14,6 +14,8 @@ MaxTemperatureBeforeHeatDamage: 25
 MinTemperatureBeforeColdDamage: 0
 DamageRate: 0.1
 
+FireResistanceIgnoresHeatDamage: true
+
 OutdoorBlockChecks:
   - 1,1,0
   - -1,1,0

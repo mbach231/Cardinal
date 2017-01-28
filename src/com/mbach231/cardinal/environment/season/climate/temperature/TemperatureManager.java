@@ -12,6 +12,7 @@ import org.bukkit.Location;
 import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
+import org.bukkit.potion.PotionEffectType;
 
 /**
  *
@@ -34,6 +35,8 @@ public class TemperatureManager {
 
     private final int maxTemperatureBeforeHeatDamage_;
     private final int minTemperatureBeforeColdDamage_;
+    
+    private final boolean fireResistanceIgnoresHeatDamage_;
 
     private final double damageRate_;
 
@@ -54,6 +57,8 @@ public class TemperatureManager {
         maxTemperatureBeforeHeatDamage_ = ConfigManager.getEnvironmentConfig().getInt("MaxTemperatureBeforeHeatDamage");
         minTemperatureBeforeColdDamage_ = ConfigManager.getEnvironmentConfig().getInt("MinTemperatureBeforeColdDamage");
         damageRate_ = ConfigManager.getEnvironmentConfig().getDouble("DamageRate");
+        
+        fireResistanceIgnoresHeatDamage_ = ConfigManager.getEnvironmentConfig().getBoolean("FireResistanceIgnoresHeatDamage");
 
         hungerDamageRestoredFromWaterBottle_ = ConfigManager.getEnvironmentConfig().getInt("HungerDamageRestoredFromWaterBottle");
     }
@@ -90,7 +95,12 @@ public class TemperatureManager {
             // int heatTemperature = ambientTemperature + temperatureModifier.getHeatModifier();
             // int coldTemperature = ambientTemperature + temperatureModifier.getColdModifier();
             if (heatTemperature > maxTemperatureBeforeHeatDamage_) {
-
+                
+                // If player has Fire Resistance, ignore overheating
+                if(fireResistanceIgnoresHeatDamage_ && player.hasPotionEffect(PotionEffectType.FIRE_RESISTANCE)) {
+                    return;
+                }
+                
                 damageThresholdExeededBy = heatTemperature - maxTemperatureBeforeHeatDamage_;
                 damage = damageRate_ * ((double) damageThresholdExeededBy);
                 damageCause = TemperatureDamageEvent.TemperatureDamageCause.HEAT;
