@@ -77,6 +77,18 @@ public class TemperatureManager {
                 + biomeTemperatureManager_.getBiomeTemperature(player.getLocation().getBlock().getBiome(), player.getWorld().getTime());
 
     }
+    
+    public int getTemperature(Player player) {
+        
+        int temp = weatherManager_.getCurrentTemperature();
+        temp += biomeTemperatureManager_.getBiomeTemperature(player.getLocation().getBlock().getBiome(), player.getWorld().getTime());
+        temp += heldItemsTemperatureManager_.getTemperatureModifierFromHeldItems(player);
+        temp += blockTemperatureManager_.getNearbyBlockTemperatureModifier(player);
+
+        //return Math.random() < 0.5 ? getPlayerTemperature(player).getColdModifier() : getPlayerTemperature(player).getHeatModifier();
+        return temp;
+
+    }
 
     public void handlePlayerTemperature(Player player) {
         Location location = player.getLocation();
@@ -118,7 +130,7 @@ public class TemperatureManager {
                     if (damageCause.equals(TemperatureDamageEvent.TemperatureDamageCause.COLD)) {
                         player.damage(event.getDamage());
                     } else {
-
+                        
                         int dmg = (int) damage;
                         if (dmg > 0) {
                             onHungerDamaged(player, dmg);

@@ -15,6 +15,9 @@ MinTemperatureBeforeColdDamage: 0
 DamageRate: 0.1
 
 FireResistanceIgnoresHeatDamage: true
+# Currently configured to reduce by 25% per level. If IV or higher, damage
+# is reduced to zero.
+FireProtectionReducesHeatDamage: true
 
 OutdoorBlockChecks:
   - 1,1,0

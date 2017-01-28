@@ -27,7 +27,8 @@ public class ClimateCommandHandler extends CustomCommandHandler {
         if (cmd.getName().equalsIgnoreCase("temp")) {
 
             Player player = (Player) sender;
-            int temp = ClimateListener.getAmbientTemperature(player);
+            //int temp = ClimateListener.getAmbientTemperature(player);
+            int temp = ClimateListener.getTemperature(player);
             player.sendMessage("Current temperature: " + temp);
 
         } else if (cmd.getName().equalsIgnoreCase("date")) {
